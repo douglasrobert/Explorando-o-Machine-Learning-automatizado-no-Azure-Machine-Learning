@@ -80,4 +80,4 @@ Após clicar no botão ``` create ``` , não é o ideal sair da tela. Deixa o pr
 
 ### Próximo Passo:
 
-https://github.com/WanderBernardo/AzureIA_MachineLearning_ConfigModel_SetData
+https://github.com/douglasrobert/Explorando-o-Machine-Learning-automatizado-no-Azure-Machine-Learning/blob/main/Configurar%20o%20Modelo%20e%20Validar%20os%20Resultados.md
