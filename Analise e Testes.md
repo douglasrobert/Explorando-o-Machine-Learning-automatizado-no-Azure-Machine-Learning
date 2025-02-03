@@ -98,5 +98,7 @@ Caso esse ultimo passo apresente erro: ResourceOperationFailure: ``` Resource pr
 
 ### Próximo Passo
 
+https://github.com/douglasrobert/Explorando-o-Machine-Learning-automatizado-no-Azure-Machine-Learning/blob/main/Configurar%20o%20Modelo%20e%20Validar%20os%20Resultados.md
+
 
 
