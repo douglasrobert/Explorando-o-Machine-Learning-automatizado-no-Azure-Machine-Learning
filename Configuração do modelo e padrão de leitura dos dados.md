@@ -1,93 +1,83 @@
-Azure Inteligência Artificial(IA) - Configuração do modelo e padrão de leitura dos dados
-Objetivo é configurar o serviço de Machine Learning para ler a base de dados e apresentar os resultado.
+# Azure Inteligência Artificial(IA) - Serviço Machine Learning Workspace
+Objetivo desse laboratório é demonstrar o processo de configuração para criar um modelo de previsão com seus devidos pontos de extremidade configurados.
 
-Ferramentas utilizadas:
-Azure: https://azure.microsoft.com/pt-br/get-started/azure-portal/
-Azure ML: https://ml.azure.com/
-Serviço da Azure: Azure Machine Learning
-Pontos Importantes:
-Caso esteja realizando apenas um prática de estudo, no final excluir tudo que foi construído nesse laboratório. Desta forma, minimiza o risco de ser cobrado algum valor. Lembre-se você está em um ambiente real de produção.
+### Ferramentas utilizadas:
 
-Links uteis com detalhamento:
+- Azure: https://azure.microsoft.com/pt-br/get-started/azure-portal/
+- Serviço da Azure: ``` Azure Machine Learning ```
 
-https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/02-content-safety.html
+### Pontos Importantes:
 
-https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/01-machine-learning.html
+ - Iniciaremos a configuração do painel de Serviço da Azure. Portanto, a conta já deve está criada.
+ - Caso esteja realizando apenas um prática de estudo, no final excluir tudo que foi construído nesse laboratório. Desta forma, minimiza o risco de ser cobrado algum valor. Lembre-se você está em um ambiente real de produção.
+ - Links uteis com detalhamento:
+   
+    * https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/02-content-safety.html
+      
+    * https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/01-machine-learning.html
 
-Resumo (Passo-a-passo): Configuração Machine Learning:
-Ir para "Go to Resouce"
-Clicar em "Launch studio"
-Abrirá uma pagina nova então selecionar o workspace criando anteriormente
-Clicar no botão "Automated ML"
-Selecionar o item "New automated job"
-Preencher "Basic setting"
-Preencher "Task type & data"
-Detalhamento para configuração Machine Learning:
+### Resumo (Passo-a-passo): Configuração Machine Learning:
 
-01 - Clicar no botão no final da tela: Go to Resouce
-02 - Clicar no botão Launch studio
-03 - Então, abrirá uma nova pagina com endereço: https://ml.azure.com/. Pode acontece de abrir e não está logado. Então precisa fazer o login. Após fazer o login, clicar em "Automated ML"
+ - Selecionar o serviço de IA Machine Learning
+ - Escolher a opção "New Workspace" no botão "Create"
+ - Preencher os dados solicitados a Aba "Basics"
+ - Demais configurações manter o padrão
+ - Validar as configuração e criar
 
-Perceba que o Workspace que você criou no passo anterior (https://github.com/WanderBernardo/AzureIA_MachineLearning_Workspace), já aparece.
+### Detalhamento (Passo-a-passo): Configuração Machine Learning
 
-Caso não apareça, então, clicar em "All workspaces" e selecionar o Workspaces que foi criado anteriormente.
+01 - Selecionar o serviço Azure Machine Learning:
 
-04 - Selecionar a item: New Automated job
+![image](https://github.com/user-attachments/assets/6200a8ae-da6f-4de1-a456-94ca8f9cc6be)
 
-05 - A partir de agora, preencher conforme o padrão solicitado. Pois estamos executando exercicio disponibilizado pela microsoft. Mas na vida real, incluir os dados compativel com modelo que estão desenvolvendo. Pós preenchimento clicar em Next
+02 - Clicar no botão "Create" na e na opção "New Workspace":
 
-Job name: mslearn-bike-automl
-Experiment name: Padrão do sistema, não alterar.
-New experiment name: mslearn-bike-rental
-Description: Automated machine learning for bike rental prediction
-Tag: none
+![image](https://github.com/user-attachments/assets/df0da2a7-d736-45a0-9c6f-1fa7468595af)
 
-06 - Preencher com os dados Task type & data
+03 - Preencher os dados solicitados a Aba "Basics":
 
-Select task type: aqui que tipo de tarefa será realizado: uma regressão, classificação, entre outras. No nosso caso, será uma Regressão
+### - Resource details: 
+   * Subscription: é a conta que você está logado. É como se você a sua empresa. Repositótorio geral de tudo que é criado, a Pasta principal. Já vem preenchido de padrão, Esse 
+ padrão é criado automaticamente quando realiza o cadastro. Mas pode ser criado outras opções.
+   * Resource group: é uma sub-repositório do "Subscription".
 
-07 - Na parte Select data , clicar no botão Create . Então, vai abrir uma tela para preencher, após preenchimento clicar em: Next
+Imagina uma gaveteiro onde o gaveteiro inteiro é ``` Subscriptiom ``` e uma gaveta desse gaveteiro é o Resource group.
 
-Data type:
-Name: Não incluir dados sensiveis ou confidencias. No nosso modelo será: bike-rentals
-Description: Historic bike rental data
-Type: Table (mltable) - Aqui tem link para mais informações para melhor o entendimento do tipo de dados você consegue trabalhar. No nosso caso estamos usando um CSV.
+Essa configuração não tem um padrão exato, fica a critério da empresa. A configuração deve seguir um padrão que é melhor para você, empresa, instituição etc. Por exemplo, divido em projetos, Departamentos, Prédio etc.
 
-Data source: Selecionar a opção From local files depois Next
+ ![image](https://github.com/user-attachments/assets/e75b5773-9022-45b1-944e-a64d9e2afe47)
+ Conforme imagem acima perceba que a link destacacado em azul para Saber mais (Learn more...)
 
-Nesta proxima tela mantém a configuração padrão em seguida Next
+ ### - Workspace details
+   * Name: nome do seu projeto, modelo (Deve ser único)
+   * Region: basicamente, quer dizer em qual servidor da Microsoft você quer salvar. Acredito que também determina a moeda que será cobrado por utilizar esse serviço.
+   * Storage account: no nosso exemplo, será preenchido automaticamente, pois estamos criando um novo, então, só manter. Mas caso queira criar uma estrutura pode também. Esse Storage é usado para armazenar os artefatos criados quando rodam o modelo criado.
+   * Key Vault: onde é guardando os secredos, certificados, informações confidenciais. No nosso caso, mantemos o que será criado automático. Mas no dia-a-dia, pode ser criado uma estrutura conforme a necessidade.
+   * Aplication Insights: basicamente na criação de visões, os graficos para apresentar, monitorar quando tiver novos valores etc.
+   * Container registry: manter "None".
 
-Datastore type: Azure Blob Storage
-Name: workspaceblobstore
+![image](https://github.com/user-attachments/assets/224699c0-9be1-4fb2-89ae-cc5a2342dfd8)
+Reforçando, caso queira entender melhor os campos acima tem o link destacacado em azul para Saber mais (Learn more...)
 
-08 - Neste próximo passo, será necessário baixar o arquivo de exemplo que vamos usar e descompactar (em anexo). Link para baixar: https://aka.ms/bike-rentals
-09 - Então deve fazer o upload do arquivo e Next
-10 - Agora, o neste próximo passo o sistema vai validar as configurações. Quando concluir vai mostrar a tela com resumo das configurações e o botão create ativo. Click no bortão e aguardar concluir. Não sair da tela até concluir.
-11 - Vai apresentar uma mensagem de sucesso na parte superior e em seguida, selecionar a opção criado, pois foi o que você criou nos passos anterior e Next
-12 - Agora neste passo, a configuração necessaria é selecionar Target column: rentals (Integer)
+04 - Demais Abas: vamos manter o padrão, pois estamos realizando uma configuração basica e iremos excluir esse modelo no final.
+   * Networking: configuração de privacidade do seu modelo(Publico/Privado)
+   * Encryption: usar encryptação
+   * Identity: usar o controle de acesso
+   * Tags: muito usado para criar filtros. Por exemplo: Quero fazer rateio para lançamento de custo por Departamento, então, cria as tags por departamento. Conforme sua necessidade.
 
-E abaixo do campo acima selecionar e ajustar: View additional configuration settings
+   ![image](https://github.com/user-attachments/assets/c11e66d3-cccc-464f-b26a-5a1b4a8a9837)
 
-Então, vai abrir uma nova tela onde vai precisar desmarcar as 3 opções:
 
-* - Explain best model
-* - Enable ensemble stacking
-* - Use all supported models E na opção: Allowed models, selecionar "RandomForest" e "LightGBM"
+04 - Validar as configurações realizada na Aba ``` Review + create ``` e em seguida clicar no botão ``` create ``` 
 
-Reforçando, que essa configuração é para o nosso exemplo. Cada caso, precisa ser analisado qual configuração será necessário.
+Caso não apresente a mensagem  ``` Validaded passed ```, precisa rever as configurações.
 
-13 - Agora, nessa parte da configuração "Limits", irá configurar o tempo limite timeout, máximo de avaliação etc. Basicamente, são os paramêtros para indicar o limite e tempo de pesquisas vai ser realizado para apresentar o resultado.
-14 - Neste parte, Validate and test, preencher conforme abaixo e Next
+![image](https://github.com/user-attachments/assets/be73b4ea-8eff-408a-a6b5-bec0c47d43c3)
 
-Validation type: Train-validation split
-Percentage validation of data: 10
-Test data: None
+Após clicar no botão ``` create ``` , não é o ideal sair da tela. Deixa o processo ser concluído.
 
-15 - Agora, selecionar as configuração o desempenho que gostaria dedicar para realizar essa tarefa. Mantém a configuração padrão. Então, Next
-16 - Vai apresentar uma tela com resumo das configurações realizadas e clicar em Submit training job
+![image](https://github.com/user-attachments/assets/1628971a-0c07-4d7b-98a5-d784d2662c51)
 
-Não saia da tela. Aguardar concluir:
+### Próximo Passo:
 
-Status de concluído:
-
-Próximo Passo
+https://github.com/WanderBernardo/AzureIA_MachineLearning_ConfigModel_SetData
